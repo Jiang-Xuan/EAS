@@ -9,7 +9,7 @@
 							<span class="iconbar"></span>
 							<span class="iconbar"></span>
 						</button>
-						<a href="#" class="navbar-brand">学生端</a>
+						<a href="http://127.0.0.1/src/index.html" class="navbar-brand">学生端</a>
 					</div>
 					<div class="collapse navbar-collapse" id="导航">
 						<ul class="nav navbar-nav">
