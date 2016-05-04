@@ -204,7 +204,7 @@
 					<form action="login_handle.php" method="post" class="form">
 						<input type="text" name="username" placeholder="用户名" required>
 						<input type="password" name="password" placeholder="密码" required>
-						<button type="submit" id="login-button">Login</button>
+						<button type="submit" id="login-button">登录</button>
 					</form>
 				</div>
 				<div class="bg-bubbles">

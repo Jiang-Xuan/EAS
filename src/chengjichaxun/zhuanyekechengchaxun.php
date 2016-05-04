@@ -1,6 +1,15 @@
 <?php 
 	header('Content-Type:text/html;charset=utf-8');
 	date_default_timezone_set('Asia/Shanghai');
+
+	if(!empty($_SESSION['login-status']) && $_SESSION['login-status']) {
+		
+	}else {
+		echo '请登录之后操作！<script>setTimeout(function(){
+			window.location = "login.php";
+		},3000)</script>';
+	}
+	die();
  ?>
 
  <!DOCTYPE html>

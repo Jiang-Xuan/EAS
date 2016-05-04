@@ -1,15 +1,15 @@
 <div class="container-fluid">
 		<div class="row">
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default navbar-static-top">
 				<div class="container">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#导航">
 							<span class="sr-only"></span>
-							<span class="iconbar"></span>
-							<span class="iconbar"></span>
-							<span class="iconbar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
 						</button>
-						<a href="http://127.0.0.1/src/index.html" class="navbar-brand">学生端</a>
+						<a href="http://127.0.0.1/" class="navbar-brand">学生端</a>
 					</div>
 					<div class="collapse navbar-collapse" id="导航">
 						<ul class="nav navbar-nav">

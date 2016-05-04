@@ -1,3 +1,14 @@
+<?php 
+	session_start();
+
+	if(!empty($_SESSION['login-status'])) {
+		$status = '注销';
+		$url = 'logout.php';
+	} else {
+		$status = '登录';
+		$url = 'login.php';
+	}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +32,9 @@
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#导航">
 							<span class="sr-only"></span>
-							<span class="iconbar"></span>
-							<span class="iconbar"></span>
-							<span class="iconbar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
 						</button>
 						<a href="http://127.0.0.1/src/" class="navbar-brand">学生端</a>
 					</div>
@@ -63,9 +74,11 @@
 	</div>
 	<div class="jumbotron">
 		<div class="container">
-			<h1>欢迎您，用户！</h1>
-			<p>这里是扬州工业职业技术学院学生端教务系统。请您</p>
-			<p><a href="user/login.php" class="btn btn-primary btn-lg" role="button">登录</a></p>
+			<h1>欢迎您，<?php if(!empty($_SESSION['username'])){
+				echo $_SESSION['username'];
+				} else { echo '用户';} ?>！</h1>
+			<p>这里是扬州工业职业技术学院学生端教务系统。</p>
+			<p>请您选择 <a href="src/user/<?php echo $url; ?>" class="btn btn-primary btn-lg" role="button"><?php echo $status; ?></a></p>
 		</div>
 	</div>
 </body>
