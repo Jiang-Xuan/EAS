@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tooltip</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+
+		<h1 class="page-header">Tooltip</h1>
+
+
+		<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+			Tooltip in top
+		</button>
+
+		<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="HyperText Markup Language">HTML</button>
+
+		<a href="" class="" data-toggle="tooltip" data-placement="left" title="Cascading Style Sheets">CSS</a>
+
+		<span data-toggle="tooltip" data-placement="top" title="ECMAScript"><abbr title="">JS</abbr></span>
+
+		<button class="btn btn-primary" type="button" data-toggle="popover" data-placement="top" title="Do you love me?" data-content="I love you.">LOVE?</button>
+
+		<a class="btn btn-info" role="button" tabindex="0" data-toggle="popover" data-placement="top" data-trigger="focus" title="Do you love me?" data-content="L love you.">LOVE?</a>
+	</div>
+	<div class="container">
+		<h1 class="page-header">警告框</h1>
+		<div class="alert alert-info fade in" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-albel="Close">
+				<span aria-hidden="true">&times;</span>				
+			</button>
+			<strong>将降级</strong>啦啦啦
+		</div>		
+	</div>
+	<script>
+		$(function(){
+			$('[data-toggle="tooltip"').tooltip();
+			$('[data-toggle="popover"]').popover();
+		})
+	</script>
+</body>
+</html>

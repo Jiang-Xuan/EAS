@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>404 Not Found</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<style>
+		.content {
+			height: 100vh;
+			overflow: hidden;
+			position: relative;
+			margin: 0;
+			padding: 0;
+			z-index: 1;
+			background-image: linear-gradient(to bottom, rgb(187, 207, 225) 0%, rgb(232, 242, 246) 80%);
+			
+		}
+
+		.main-text {
+			padding: 20vh 20px 0 20px;
+			text-align: center;
+			line-height: 2em;
+			font-size: 5vh;
+			color: rgb(93, 115, 153);
+		}
+		h1 {
+			margin: 0;
+		}
+		.home-link {
+			font-size: 0.6em;
+			font-weight: 400;
+			text-decoration: none;
+			opacity: .6;
+			border-bottom: 1px dashed rgba(93, 115, 153, 0.5);
+		}
+		.home-link:hover {
+			text-decoration: none;
+		}
+		.home-link:focus {
+			text-decoration: none;
+		}
+
+		.ground {
+			height: 160px;
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background-color: rgb(246, 249, 250);
+			box-shadow: 0 0 10px 10px rgb(246, 249, 250);
+		}
+
+		.ground::before, .ground::after {
+			content: '';
+			display: block;
+			width: 250px;
+			height: 250px;
+			position: absolute;
+			top: -62.5px;
+			z-index: -1;
+			background-color: transparent;
+			transform: scaleX(0.2) rotate(45deg);
+		}
+
+		.ground::before {
+			right: 50%;
+			margin-right: -166.66667px;
+			box-shadow: 280px -320px 15px rgb(183, 193, 211), 605px -595px 15px rgb(157, 171, 196), 860px -940px 15px rgb(186, 196, 213), 1250px -1150px 15px rgb(148, 163, 190), 1530px -1470px 15px rgb(157, 171, 196), 1850px -1750px 15px rgb(145, 161, 188), 2055px -2145px 15px rgb(173, 185, 205), 2395px -2405px 15px rgb(145, 161, 188), 2720px -2680px 15px rgb(161, 174, 198), 3040px -2960px 15px rgb(170, 182, 203), 3295px -3305px 15px rgb(157, 171, 196), 3605px -3595px 15px rgb(173, 185, 205), 3870px -3930px 15px rgb(154, 169, 194), 4230px -4170px 15px rgb(176, 188, 207), 4540px -4460px 15px rgb(132, 150, 180), 4805px -4795px 15px rgb(180, 190, 209);
+		}
+		.ground::after {
+			left: 50%;
+			margin-left: -166.66667px;
+			box-shadow: -315px 285px 15px rgb(142, 158, 186), -595px 605px 15px rgb(164, 177, 200), -855px 945px 15px rgb(167, 180, 201), -1210px 1190px 15px rgb(154, 169, 194), -1505px 1495px 15px rgb(138, 155, 184), -1795px 1805px 15px rgb(138, 155, 184), -2140px 2060px 15px rgb(186, 196, 213), -2425px 2375px 15px rgb(157, 171, 196), -2685px 2715px 15px rgb(132, 150, 180), -3005px 2995px 15px rgb(154, 169, 194), -3300px 3300px 15px rgb(154, 169, 194), -3550px 3650px 15px rgb(161, 174, 198), -3875px 3925px 15px rgb(183, 193, 211), -4160px 4240px 15px rgb(126, 144, 176), -4520px 4480px 15px rgb(173, 185, 205), -4815px 4785px 15px rgb(157, 171, 196);
+		}
+
+		.mound {
+			margin-top: -80px;
+			font-weight: 800;
+			font-size: 180px;
+			text-align: center;
+			color: rgb(221, 64, 64);
+			pointer-events: none;
+		}
+
+		.mound-text {
+			transform: translateY(-50px) rotate(6deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid content">
+		<div class="row">
+			<div class="main-text">
+				<h1>扬州工业职业技术学院学生端教务系统</h1>
+				<h4>您访问的该页面不存在</h4>
+				<a class="home-link" href="http://127.0.0.1">返回首页</a>
+			</div>
+			<div class="ground">
+				<div class="mound">
+					<div class="mound-text">
+						404
+					</div>
+					<div class="mound-spade">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

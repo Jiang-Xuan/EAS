@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5</title>
+	<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<h2>下面是编辑器</h2>
+	<div id="editor">
+		<button id="bold">加粗</button>
+		<button id="italic"><i>斜体</i></button>
+		<button id="underline"><u>下划线</u></button>
+		<div contenteditable="true">
+			这里面<b>已经</b>有<i>些</i><u>富文本</u>了
+		</div>
+	</div>
+
+	<script>
+		function Editor(selector) {
+			this.$editor = $(selector);
+			this._bindEvents();
+		}
+
+		Editor.prototype._bindEvents = function() {
+			this.$editor.on('click', 'button', function(e) {
+				switch(e.currentTarget.id) {
+					case 'bold':
+						document.execCommand('bold');
+						break;
+					case 'italic':
+						document.execCommand('italic');
+						break;
+					case 'underline':
+						document.execCommand('underline');
+						break;
+				}
+			});
+		}
+	</script>
+
+	<script>
+		new Editor('#editor');
+	</script>
+</body>
+</html>

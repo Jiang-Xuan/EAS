@@ -1,15 +1,33 @@
 <?php 
+	session_start();
 	header('Content-Type:text/html;charset=utf-8');
 	date_default_timezone_set('Asia/Shanghai');
 
+	// print_r($_SESSION);
+
 	if(!empty($_SESSION['login-status']) && $_SESSION['login-status']) {
+		$link = @mysql_connect('127.0.0.1', 'root', '');
+
+		mysql_select_db('xscjdb');
+
+		// print_r($_SESSION);
+
+		mysql_query('set names utf8');
+
+
+		$username = $_SESSION['username'];
+
+		// print_r("SELECT * FROM 学生成绩表 WHERE 姓名 = $username");
 		
+		$dataAdd = mysql_query("SELECT 班号,学号,班级名称,姓名,学年 FROM 学生成绩表 WHERE 姓名 = '$username'");
+
+		$data = mysql_fetch_assoc($dataAdd);
+
+		// print_r($data);
 	}else {
-		echo '请登录之后操作！<script>setTimeout(function(){
-			window.location = "login.php";
-		},3000)</script>';
+		echo '<script>window.location="login_center.php"</script>';
+		die();
 	}
-	die();
  ?>
 
  <!DOCTYPE html>
@@ -22,55 +40,49 @@
  	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  	<style>
 		table {
-			table-layout: fixed;
+			table-layout: ;
 		}
  	</style>
  </head>
  <body>
  	<?php include '../tpl/nav.php' ?>
  	<div class="container">
- 		<table class="table table-bordered table-hover">
- 			<caption>您查询的专业课程结果为：</caption>
- 			<thead>
- 				<tr>
- 					<td>专业课名：</td>
- 					<td>网页设计与制作</td>
- 					<td>C#应用程序设计</td>
- 					<td>SQL Server应用技术</td>
- 					<td>计算机组装与维护</td>
- 				</tr>
- 			</thead>
- 			<tbody>
- 				<tr>
- 					<td>专业成绩：</td>
- 					<td class="success">及格</td>
- 					<td class="info">优秀</td>
- 					<td class="danger">不合格</td>
- 					<td class="success">66</td>
- 				</tr>
- 			</tbody>
- 			<tfoot></tfoot>
- 		</table>
- 		<table class="table table-bordered table-hover">
- 			<thead>
- 				<tr>
- 					<td>专业课名：</td>
- 					<td>锋利的jQuery</td>
- 					<td>Node.js实战</td>
- 					<td>精通Nginx</td>
- 					<td>图解TCP/IP</td>
- 				</tr>
- 			</thead>
- 			<tbody>
- 				<tr>
- 					<td>专业成绩：</td>
- 					<td class="success">及格</td>
- 					<td class="success">及格</td>
- 					<td class="info">优秀</td>
- 					<td class="info">100</td>
- 				</tr>
- 			</tbody>
- 		</table>
+ 		<div class="page-header">个人信息：</div>
+			<ul class="list-unstyled list-inline text-center">
+				<li><strong>班号：</strong><?php echo $data['班号'] ?></li>
+				<li><strong>学号：</strong><?php echo $data['学号'] ?></li>
+				<li><strong>班级名称：</strong><?php echo $data['班级名称'] ?></li>
+				<li><strong>姓名：</strong><?php echo $data['姓名'] ?></li>
+				<li><strong>学年：</strong><?php echo $data['学年'] ?></li>
+			</ul>
+ 		<div class="page-header">您查询的专业课程结果为：</div>
+		<?php 
+			$dataAdd = mysql_query("SELECT 课程名称,成绩 FROM 学生成绩表 WHERE 姓名='$username'");
+			$courseNum = mysql_num_rows($dataAdd);
+			// echo $courseNum;
+		 ?>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<td>课程名称：</td>
+						<?php while($data = mysql_fetch_assoc($dataAdd)) { ?>
+						<td><?php echo $data['课程名称'] ?></td>
+						<?php } 
+							@mysql_data_seek($dataAdd, 0);
+						?>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>专业成绩：</td>
+						<?php while($data = mysql_fetch_assoc($dataAdd)) { ?>
+						<td><?php echo $data['成绩'] ?></td>
+						<?php } ?>
+					</tr>
+				</tbody>
+			</table>
+
+			
  		<h4 class="text-right">查询结束</h4>
  	</div>
  </body>

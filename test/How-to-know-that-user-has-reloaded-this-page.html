@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>How to know that user has reloaded the webpage?</title>
+</head>
+<body>
+	<input type="text">
+	<script>
+		window.onunload = unloadPage;
+
+		function unloadPage() {
+			console.log('456');
+		}
+
+		window.onbeforeunload = function() {
+		    return "Are you sure you want to navigate away?";
+		}
+	</script>
+</body>
+</html>
